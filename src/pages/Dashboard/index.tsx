@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
     <Container>
       <Header>
         <HeaderTitle>
-          Welcome,
+          Bienvenido,
           {'\n'}
           <UserName>{user.name}</UserName>
         </HeaderTitle>
@@ -69,7 +69,9 @@ const Dashboard: React.FC = () => {
       <ProvidersList
         data={providers}
         keyExtractor={provider => provider.id}
-        ListHeaderComponent={<ProvidersListTitle>Barbers</ProvidersListTitle>}
+        ListHeaderComponent={
+          <ProvidersListTitle>Proveedores</ProvidersListTitle>
+        }
         renderItem={({ item: provider }) => (
           <ProviderContainer
             onPress={() => navigateToCreateAppointment(provider.id)}
@@ -81,7 +83,7 @@ const Dashboard: React.FC = () => {
 
               <ProviderMeta>
                 <Icon name="calendar" size={14} color="#ff9000" />
-                <ProviderMetaText>Monday to Friday</ProviderMetaText>
+                <ProviderMetaText>Lunes a Viernes</ProviderMetaText>
               </ProviderMeta>
 
               <ProviderMeta>

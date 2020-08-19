@@ -188,7 +188,7 @@ const CreateAppointment: React.FC = () => {
           <Icon name="chevron-left" size={24} color="#999591" />
         </BackButton>
 
-        <HeaderTitle>Barbers</HeaderTitle>
+        <HeaderTitle>Proveedores</HeaderTitle>
 
         <UserAvatar source={{ uri: user.avatar_url }} />
       </Header>
@@ -215,11 +215,11 @@ const CreateAppointment: React.FC = () => {
         </ProvidersListContainer>
 
         <Calendar>
-          <Title>Pick the date</Title>
+          <Title>Fecha de la cita:</Title>
 
           <OpenDatePickerButton onPress={handleToggleDatePicker}>
             <OpenDatePickerButtonText>
-              Select another date
+              Seleccionar Fecha
             </OpenDatePickerButtonText>
           </OpenDatePickerButton>
 
@@ -235,10 +235,10 @@ const CreateAppointment: React.FC = () => {
         </Calendar>
 
         <Schedule>
-          <Title>Pick the hour</Title>
+          <Title>Elija un horario:</Title>
 
           <Section>
-            <SectionTitle>Morning</SectionTitle>
+            <SectionTitle>Mañana</SectionTitle>
 
             <SectionContent>
               {morningAvailability.map(
@@ -266,7 +266,7 @@ const CreateAppointment: React.FC = () => {
           </Section>
 
           <Section>
-            <SectionTitle>Afternoon</SectionTitle>
+            <SectionTitle>Tarde</SectionTitle>
 
             <SectionContent>
               {afternoonAvailability.map(
@@ -295,7 +295,7 @@ const CreateAppointment: React.FC = () => {
         </Schedule>
 
         <CreateAppointmentButton onPress={handleCreateAppointment}>
-          <CreateAppointmentButtonText>Schedule</CreateAppointmentButtonText>
+          <CreateAppointmentButtonText>¡Agendar!</CreateAppointmentButtonText>
         </CreateAppointmentButton>
       </Content>
     </Container>

@@ -92,7 +92,7 @@ const SignUp: React.FC = () => {
             <Image source={logoImg} />
 
             <View>
-              <Title>Create Account</Title>
+              <Title>Crear Cuenta</Title>
             </View>
 
             <Form ref={formRef} onSubmit={handleSignUp}>
@@ -100,7 +100,7 @@ const SignUp: React.FC = () => {
                 autoCapitalize="words"
                 name="name"
                 icon="user"
-                placeholder="Name"
+                placeholder="Nombre"
                 returnKeyType="next"
                 onSubmitEditing={() => {
                   emailInputRef.current?.focus();
@@ -124,7 +124,7 @@ const SignUp: React.FC = () => {
                 secureTextEntry
                 name="password"
                 icon="lock"
-                placeholder="Password"
+                placeholder="Contraseña"
                 textContentType="newPassword"
                 returnKeyType="send"
                 onSubmitEditing={() => {
@@ -138,7 +138,7 @@ const SignUp: React.FC = () => {
                 formRef.current?.submitForm();
               }}
             >
-              Enter
+              Crear
             </Button>
           </Container>
         </ScrollView>
@@ -146,7 +146,7 @@ const SignUp: React.FC = () => {
 
       <BackToSignIn onPress={() => navigation.goBack()}>
         <Icon name="arrow-left" size={20} color="#fff" />
-        <BackToSignInText>Back to Login</BackToSignInText>
+        <BackToSignInText>Volver a Login</BackToSignInText>
       </BackToSignIn>
     </>
   );
