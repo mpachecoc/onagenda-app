@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 
 import AuthRoutes from './auth.routes';
-import AppRoutes from './app.routes';
+import AppTabsRoutes from './appTabs.routes';
 
 import { useAuth } from '../hooks/auth';
 
@@ -17,7 +17,7 @@ const Routes: React.FC = () => {
     );
   }
 
-  return user ? <AppRoutes /> : <AuthRoutes />;
+  return user ? <AppTabsRoutes /> : <AuthRoutes />;
 };
 
 export default Routes;
