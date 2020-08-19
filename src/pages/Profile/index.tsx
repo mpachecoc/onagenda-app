@@ -182,7 +182,7 @@ const Profile: React.FC = () => {
             </UserAvatarButton>
 
             <View>
-              <Title>My Account</Title>
+              <Title>Mi Cuenta</Title>
             </View>
 
             <Form
@@ -194,7 +194,7 @@ const Profile: React.FC = () => {
                 autoCapitalize="words"
                 name="name"
                 icon="user"
-                placeholder="Name"
+                placeholder="Nombre"
                 returnKeyType="next"
                 onSubmitEditing={() => {
                   emailInputRef.current?.focus();
@@ -218,7 +218,7 @@ const Profile: React.FC = () => {
                 secureTextEntry
                 name="old_password"
                 icon="lock"
-                placeholder="Current password"
+                placeholder="Contraseña Actual"
                 textContentType="newPassword"
                 returnKeyType="next"
                 containerStyle={{ marginTop: 16 }}
@@ -231,7 +231,7 @@ const Profile: React.FC = () => {
                 secureTextEntry
                 name="password"
                 icon="lock"
-                placeholder="New password"
+                placeholder="Nueva Contraseña"
                 textContentType="newPassword"
                 returnKeyType="next"
                 onSubmitEditing={() => {
@@ -243,7 +243,7 @@ const Profile: React.FC = () => {
                 secureTextEntry
                 name="password_confirmation"
                 icon="lock"
-                placeholder="Confirm password"
+                placeholder="Confirmar Contraseña"
                 textContentType="newPassword"
                 returnKeyType="send"
                 onSubmitEditing={() => {
@@ -257,7 +257,7 @@ const Profile: React.FC = () => {
                 formRef.current?.submitForm();
               }}
             >
-              Confirm changes
+              Guardar cambios
             </Button>
           </Container>
         </ScrollView>
