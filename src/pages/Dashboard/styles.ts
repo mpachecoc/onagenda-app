@@ -6,6 +6,7 @@ import { Provider } from './index';
 
 export const Container = styled.View`
   flex: 1;
+  background: #312e38;
 `;
 
 export const Header = styled.View`

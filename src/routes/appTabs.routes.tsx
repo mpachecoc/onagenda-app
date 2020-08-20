@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Feather';
 
-import AppRoutes from './app.routes';
+import Dashboard from '../pages/Dashboard';
 import ListAppointments from '../pages/ListAppointments';
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -13,7 +13,7 @@ const AppTabsRoutes: React.FC = () => (
       style: {
         elevation: 0,
         shadowOpacity: 0,
-        height: 56,
+        height: 54,
       },
       tabStyle: {
         flexDirection: 'row',
@@ -37,8 +37,8 @@ const AppTabsRoutes: React.FC = () => (
     }}
   >
     <Screen
-      name="AppRoutes"
-      component={AppRoutes}
+      name="Dashboard"
+      component={Dashboard}
       options={{
         tabBarLabel: 'Agendar',
         tabBarIcon: ({ color, focused }) => (
