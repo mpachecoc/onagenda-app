@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { format, parseISO, isAfter } from 'date-fns';
 import es from 'date-fns/locale/es';
@@ -13,6 +14,7 @@ import {
   ProviderName,
   ProviderMeta,
   ProviderMetaText,
+  CancelContainer,
 } from './styles';
 
 import api from '../../services/api';
@@ -52,6 +54,43 @@ const ListAppointments: React.FC = () => {
     });
   }, []);
 
+  const handleCancelAppointment = useCallback(
+    async (appointment_id: string) => {
+      try {
+        Alert.alert(
+          'Confirmación',
+          '¿Desea cancela la cita?',
+          [
+            {
+              text: 'Cancel',
+              onPress: () => {},
+              style: 'cancel',
+            },
+            {
+              text: 'OK',
+              onPress: async () => {
+                await api.delete(`/appointments/${appointment_id}`);
+
+                setAppointments(currentAppointments =>
+                  currentAppointments.filter(appointment => {
+                    return appointment.id !== appointment_id ? appointment : '';
+                  }),
+                );
+              },
+            },
+          ],
+          { cancelable: false },
+        );
+      } catch (err) {
+        Alert.alert(
+          'Error',
+          'Ocurrio un error al cancelar la cita, por favor intente nuevamente.',
+        );
+      }
+    },
+    [],
+  );
+
   return (
     <Container>
       <ProvidersList
@@ -74,8 +113,12 @@ const ListAppointments: React.FC = () => {
 
               {appointment.canCancel && (
                 <ProviderMeta isCancel>
-                  <Icon name="trash-2" size={14} color="#f1646c" />
-                  <ProviderMetaText>Cancelar</ProviderMetaText>
+                  <CancelContainer
+                    onPress={() => handleCancelAppointment(appointment.id)}
+                  >
+                    <Icon name="trash-2" size={14} color="#f1646c" />
+                    <ProviderMetaText>Cancelar</ProviderMetaText>
+                  </CancelContainer>
                 </ProviderMeta>
               )}
             </ProviderInfo>

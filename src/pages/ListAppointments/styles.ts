@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/native';
 import { FlatList } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+
 import { Appointment } from './index';
 
 interface ContainerProps {
@@ -14,7 +16,7 @@ export const Container = styled.View`
 export const ProvidersList = styled(
   FlatList as new () => FlatList<Appointment>,
 )`
-  padding: 32px 24px 16px;
+  padding: 48px 24px 16px;
 `;
 
 export const ProvidersListTitle = styled.Text`
@@ -66,4 +68,12 @@ export const ProviderMetaText = styled.Text`
   margin-left: 8px;
   color: #999591;
   font-family: 'RobotoSlab-Regular';
+`;
+
+export const CancelContainer = styled(RectButton)`
+  background: #312e38;
+  border-radius: 6px;
+  padding: 9px;
+  flex-direction: row;
+  align-items: center;
 `;
