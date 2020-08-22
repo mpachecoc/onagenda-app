@@ -24,7 +24,7 @@ const AppointmentCreated: React.FC = () => {
 
   const handleOkPressed = useCallback(() => {
     reset({
-      routes: [{ name: 'Dashboard' }],
+      routes: [{ name: 'AppTabRoutes' }],
       index: 0,
     });
   }, [reset]);
