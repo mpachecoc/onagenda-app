@@ -7,6 +7,7 @@ import {
   Platform,
   TextInput,
   Alert,
+  Linking,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -43,6 +44,10 @@ const SignIn: React.FC = () => {
   const navigation = useNavigation();
 
   const { signIn } = useAuth();
+
+  const handleForgotPassword = useCallback(async () => {
+    await Linking.openURL('http://localhost:3000/forgot-password');
+  }, []);
 
   const handleSignIn = useCallback(
     async (data: SignInFormData) => {
@@ -134,8 +139,8 @@ const SignIn: React.FC = () => {
               Entrar
             </Button>
 
-            <ForgotPassword onPress={() => {}}>
-              <ForgotPasswordText>¿Olvidaste tu Contraseña?</ForgotPasswordText>
+            <ForgotPassword onPress={handleForgotPassword}>
+              <ForgotPasswordText>Olvidé mi Contraseña</ForgotPasswordText>
             </ForgotPassword>
           </Container>
         </ScrollView>
