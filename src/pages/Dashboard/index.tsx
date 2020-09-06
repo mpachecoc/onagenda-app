@@ -12,6 +12,7 @@ import {
   HeaderTitle,
   UserName,
   ProfileButton,
+  SignOutButton,
   UserAvatar,
   ProvidersList,
   ProvidersListTitle,
@@ -45,6 +46,10 @@ const Dashboard: React.FC = () => {
     navigate('Profile');
   }, [navigate]);
 
+  const handleSignOut = useCallback(() => {
+    signOut();
+  }, [signOut]);
+
   const navigateToCreateAppointment = useCallback(
     (providerId: string) => {
       navigate('CreateAppointment', { providerId });
@@ -64,6 +69,10 @@ const Dashboard: React.FC = () => {
         <ProfileButton onPress={navigateToProfile}>
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
+
+        <SignOutButton onPress={handleSignOut}>
+          <Icon name="power" size={18} color="#ff9000" />
+        </SignOutButton>
       </Header>
 
       <ProvidersList
